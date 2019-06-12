@@ -102,4 +102,12 @@ namespace LearnCSharp.Vehicles
             Console.WriteLine("Pake Batang");
         }
     }
+
+    public class Animal : Creature
+    {
+        public override void Breathing()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
