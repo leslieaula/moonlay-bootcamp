@@ -1,7 +1,5 @@
-﻿using LearnCSharp.SpareParts;
-using LearnCSharp.Vehicle.Cars;
+﻿using LearnCSharp.Vehicles;
 using System;
-using System.Linq;
 
 namespace LearnCSharp
 {
@@ -9,19 +7,38 @@ namespace LearnCSharp
     {
         static void Main(string[] args)
         {
-            Wheel avanzaWheel = new Wheel("karet", 19);
-            Seat avanzaSeat = new Seat("kulit");
-            Avanza avanza = new Avanza(4, avanzaWheel, 8, avanzaSeat);
+            var vehicleBuilder = new VehicleBuilder();
 
-            //avanza.Moving();
+            //var myVar = 0;
+            //myVar = "";
+            //myVar = "";
+            //Vehicle avanza = vehicleBuilder
+            //    .WithManufacture("Toyota")
+            //    .WithType("Avanza")
+            //    .HavingDoors(5)
+            //    .HavingWheels(4)
+            //    .HavingWheelRadius(18.5);
 
-            //System.Threading.Thread.Sleep(2000);
+            Vehicle avanza = vehicleBuilder
+                .HavingDoors(1)
+                .WithManufacture("Honda");
 
-            //avanza.Stop();
+            //avanza.Type = "";
+            //vehicleBuilder._vehicle = new Vehicle();
 
-            Console.WriteLine(avanza.StopTime);
-
+            Console.WriteLine(avanza);
             Console.ReadKey();
+            //Console.WriteLine();
+
+            //avanza = vehicleBuilder.Move(10);
+            //Console.WriteLine(avanza);
+            //Console.ReadKey();
+            //Console.WriteLine();
+
+            //avanza = vehicleBuilder.Stop();
+            //Console.WriteLine(avanza);
+            //Console.ReadKey();
+            //Console.WriteLine();
         }
     }
 
