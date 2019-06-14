@@ -1,5 +1,8 @@
 ﻿using LearnCSharp.Vehicles;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace LearnCSharp
 {
@@ -7,44 +10,79 @@ namespace LearnCSharp
     {
         static void Main(string[] args)
         {
-            var vehicleBuilder = new VehicleBuilder();
+            //var myCommand = new MyCommand();
 
-            //var myVar = 0;
-            //myVar = "";
-            //myVar = "";
-            //Vehicle avanza = vehicleBuilder
-            //    .WithManufacture("Toyota")
-            //    .WithType("Avanza")
-            //    .HavingDoors(5)
-            //    .HavingWheels(4)
-            //    .HavingWheelRadius(18.5);
+            //Parallel.For(0, 100, i => myCommand.FindCalculation(i).Wait());
+            //Task.WaitAll();
 
-            Vehicle avanza = vehicleBuilder
-                .HavingDoors(1)
-                .WithManufacture("Honda");
+            //myCommand.ConsoleCommand1(1);
+            //myCommand.FindCalculation(2).Wait();
 
-            //avanza.Type = "";
-            //vehicleBuilder._vehicle = new Vehicle();
 
-            Console.WriteLine(avanza);
-            Console.ReadKey();
-            //Console.WriteLine();
-
-            //avanza = vehicleBuilder.Move(10);
-            //Console.WriteLine(avanza);
             //Console.ReadKey();
-            //Console.WriteLine();
-
-            //avanza = vehicleBuilder.Stop();
-            //Console.WriteLine(avanza);
+            //Task.WaitAll();
+            ////Parallel.For(0, 100, i => myCommand.ConsoleCommand1(i));
             //Console.ReadKey();
-            //Console.WriteLine();
         }
     }
 
+    //public class MyCommand
+    //{
+    //    public void ConsoleCommand(int i)
+    //    {
+    //        Console.WriteLine(i);
+    //    }
+
+    //    public Task ConsoleCommand1(int i)
+    //    {
+    //        return Task.Run(() => { Console.WriteLine(i); });
+    //    }
+
+    //    public Task<int> CalculateData(int i)
+    //    {
+    //        i *= 2;
+    //        return Task.FromResult(i);
+    //    }
+
+    //    public async Task FindCalculation(int i)
+    //    {
+    //        var calculation = await CalculateData(i);
+    //        System.Threading.Thread.Sleep(10000);
+    //        Console.WriteLine(i);
+    //        Console.ReadKey();
+    //        Console.WriteLine("Hai");
+    //        Console.ReadKey();
+    //    }
+    //}
 
 
+    public class Circle : IArea, IKeliling
+    {
+        public Circle(double ruas)
+        {
+            Ruas = ruas;
+        }
 
+        public double Ruas { get; private set; }
 
+        public double GetArea()
+        {
+            return Math.PI * Ruas * Ruas;
+        }
 
+        public double GetKeliling()
+        {
+            return 2 * Math.PI * Ruas;
+        }
+    }
+
+    public interface IArea
+    {
+        double GetArea();
+    }
+
+    public interface IKeliling
+    {
+        double GetKeliling();
+    }
 }
